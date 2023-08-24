@@ -1,0 +1,31 @@
+seq_name	cluste_rep	prot_name	score
+ERR8477561.1	WP_130083302.1	carbamoyl-phosphate synthase large subunit 	4.77
+ERR8477561.3	WP_214705243.1	DUF4179 domain-containing protein 	3.0
+ERR8477561.4	WP_058714623.1	DEAD/DEAH box helicase family protein 	3.0
+ERR8477561.7	WP_149877086.1	urocanate hydratase 	3.97
+ERR8477561.8	WP_185931971.1	LPXTG cell wall anchor domain-containing protein 	3.32
+ERR8477561.10	WP_154400278.1	ATP-binding protein 	14.0
+ERR8477561.11	WP_214710118.1	alpha/beta hydrolase-fold protein 	3.0
+ERR8477561.12	WP_214704881.1	ABC transporter permease 	3.0
+ERR8477561.15	WP_214727482.1	MFS transporter 	3.0
+ERR8477561.16	WP_118720438.1	L-serine ammonia-lyase, iron-sulfur-dependent, subunit alpha 	4.0
+ERR8477561.18	WP_142961714.1	HsdR family type I site-specific deoxyribonuclease 	3.0
+ERR8477561.20	WP_214707023.1	lysozyme family protein 	3.0
+ERR8477561.22	WP_214706936.1	DegT/DnrJ/EryC1/StrS family aminotransferase 	3.0
+ERR8477561.23	WP_064846257.1	helix-turn-helix transcriptional regulator 	3.0
+ERR8477561.25	WP_059761663.1	NADPH-dependent 7-cyano-7-deazaguanine reductase QueF 	3.15
+ERR8477561.26	WP_131623313.1	DUF72 domain-containing protein 	3.0
+ERR8477561.31	WP_214725430.1	*hhblits annotated* Competence CoiA family protein  db:Pdp70 e-value:7.7e-89 	3.0
+ERR8477561.33	WP_048722628.1	*hhblits annotated* Replication control protein PrgN  db:Pdp70 e-value:9e-18 	4.0
+ERR8477561.35	WP_215978260.1	ATP-binding protein 	5.33
+ERR8477561.37	WP_214774307.1	nucleotide sugar dehydrogenase 	7.0
+ERR8477561.38	WP_005807126.1	ParB/RepB/Spo0J family partition protein 	12.92
+ERR8477561.39	WP_010729340.1	glucuronate isomerase 	11.15
+ERR8477561.41	WP_174484153.1	conjugal transfer protein TrbF 	3.0
+ERR8477561.42	WP_059763055.1	HAMP domain-containing histidine kinase 	3.0
+ERR8477561.43	WP_214705341.1	DUF859 family phage minor structural protein 	3.0
+ERR8477561.44	WP_142426850.1	short chain dehydrogenase 	3.0
+ERR8477561.45	WP_008762820.1	tRNA pseudouridine(55) synthase TruB 	6.82
+ERR8477561.46	WP_079348522.1	DUF2232 domain-containing protein 	4.23
+ERR8477561.47	WP_074585934.1	HNH endonuclease 	3.0
+ERR8477561.48	WP_214726133.1	*hhblits annotated* Membrane protein, putative  db:Pdp70 e-value:2.8999999999999997e-84 	3.83

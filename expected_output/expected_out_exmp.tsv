@@ -1,0 +1,19 @@
+seq_name	cluste_rep	prot_name	score
+WP_002358485.1_0	WP_002358485.1	lantipeptide cytolysin subunit CylL-L 	23.0
+WP_002358181.1_0	WP_002358181.1	lantipeptide cytolysin subunit CylL-S 	28.29
+WP_015058867.1_0	WP_015058867.1	class A beta-lactamase TEM-171 	18.19
+WP_003405926.1_0	WP_003405926.1	enoyl-CoA hydratase/isomerase family protein 	17.5
+WP_000427298.1_0	WP_000427298.1	retron Se72 family effector protein 	30.38
+WP_099588326.1_0	WP_136637824.1	APH(3')-I family aminoglycoside O-phosphotransferase 	12.45
+WP_008764221.1_0	WP_008764221.1	DUF3822 family protein 	33.08
+WP_010714134.1_0	WP_010714134.1	DarT ssDNA thymidine ADP-ribosyltransferase family protein 	24.17
+WP_011835262.1_0	WP_011835262.1	*hhblits annotated* N-acetylmuramoyl-L-alanine amidase  db:Pdp70 e-value:3.7e-148 	35.6
+WP_011405610.1_0	WP_011405610.1	organomercurial lyase MerB 	29.56
+WP_012027086.1_0	WP_012027086.1	UPF0223 family protein 	30.79
+WP_000044511.1_0	WP_000044511.1	baseplate J/gp47 family protein 	32.89
+WP_004364961.1_0	WP_004364961.1	Cd(II)/Pb(II)-responsive transcriptional regulator 	23.31
+WP_012222082.1_0	WP_012222082.1	GIY-YIG nuclease family protein 	23.89
+WP_012726342.1_0	WP_012726342.1	DUF302 domain-containing protein 	29.05
+WP_015880541.1_0	WP_015880541.1	nicotinate phosphoribosyltransferase 	29.59
+WP_015880807.1_0	WP_015880807.1	ABC transporter substrate-binding protein 	32.41
+WP_015881312.1_0	WP_015881312.1	cell division protein FtsA 	31.96

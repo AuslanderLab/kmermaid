@@ -1,0 +1,2 @@
+include kmermaid/db/kmer_model.pkl
+include kmermaid/db/cluster_names.pkl
