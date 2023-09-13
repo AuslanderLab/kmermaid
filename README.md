@@ -42,7 +42,7 @@ wget https://github.com/AuslanderLab/kmermaid/raw/main/kmermaid/db/kmer_model.pk
 ```
 git clone https://github.com/AuslanderLab/kmermaid.git
 cd kmermaid
-conda create --name kmermaid python=3.7 pip
+conda create --name kmermaid python=3.8 pip
 conda activate kmermaid
 pip install .
 ```
