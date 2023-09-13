@@ -18,6 +18,7 @@ Python versions tested: Python 3.6, 3.7, 3.8 and 3.9
 
 Typical install time on a "normal" desktop computer: less than 30 minutes (depending on the number of packages already installed)
 
+
 ### Install with pip
 
 To install the current version of this Github repo, run the following commands
@@ -25,6 +26,12 @@ To install the current version of this Github repo, run the following commands
 git clone https://github.com/AuslanderLab/kmermaid.git 
 cd kmermaid
 pip install .
+```
+
+#### File dependncy: To download the larger files uploaded to this repo, install git-lfs https://git-lfs.com (otherwise larger files including the kmer model would not be downloded through git clone). Alternatively, download the files directly. For example, to download the kmer model to ```kmermaid/db/``` run:
+```
+cd kmermaid/db/
+wget https://github.com/AuslanderLab/kmermaid/raw/main/kmermaid/db/kmer_model.pkl
 ```
 
 ### Install with conda 
