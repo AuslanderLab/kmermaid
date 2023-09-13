@@ -49,7 +49,7 @@ pip install .
 
 #### To deactivate kmermaid environment: <br />
 ```
-conda deactivate kmermaid
+conda deactivate
 ```
 
 ## Usage
