@@ -31,6 +31,7 @@ pip install .
 #### File dependncy: To download the larger files uploaded to this repo, install git-lfs https://git-lfs.com (otherwise larger files including the kmer model would not be downloded through git clone). Alternatively, download the files directly. For example, to download the kmer model to ```kmermaid/db/``` run:
 ```
 cd kmermaid/db/
+rm kmer_model.pkl
 wget https://github.com/AuslanderLab/kmermaid/raw/main/kmermaid/db/kmer_model.pkl
 ```
 
