@@ -1,4 +1,4 @@
-![for_git](https://github.com/AuslanderLab/virnatrap/assets/85499012/adef54f3-aad9-4fee-8637-03d34547d282)
+![kmermaid-header-stroke](https://github.com/AuslanderLab/kmermaid/assets/36303235/3790f800-c7ec-4236-802b-d69e788fb4df)
 
 
 <i>k</i>mermaid: Ultrafast functional classification of microbial reads
