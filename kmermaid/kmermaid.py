@@ -95,7 +95,14 @@ def handle_non_ATGC(sequence):
     assert len(ret) == len(sequence)
     return ret
 
-def proc_classify_fasta(fasta, outfilepath, nmd, segment_lengths, minlen, gcode, bpairs, K, dc, print_prog=True):
+def validate_sequence(sequence, name):
+    """
+    Checks to make sure the sequence only contains [ATCG] characters 
+    I leave it at 95% in case there are 1 or 2 errors
+    """
+    assert len(set(sequence).difference('ACTG')) == 0, "Non-'ATCG' characters detected in sequence '" +  name + "'" 
+
+def proc_classify_fasta(fasta, outfilepath, nmd, segment_lengths, minlen, gcode, bpairs, K, dc, print_prog=True, check_fmt):
     """
     Parse Fasta into segments.
     :param fasta: File handle in Fasta format.
@@ -129,6 +136,8 @@ def proc_classify_fasta(fasta, outfilepath, nmd, segment_lengths, minlen, gcode,
             seq_value = ""
         else:
             seq_value += line
+            if check_fmt:
+                validate_sequence(seq_value, str(seq_name))
 
     count += 1
     ret_str = "Finished"
@@ -137,7 +146,7 @@ def proc_classify_fasta(fasta, outfilepath, nmd, segment_lengths, minlen, gcode,
     return ret_str
 
 
-def proc_classify_fastq(fastq, outfilepath, nmd, segment_lengths, minlen, gcode, bpairs, K, dc, print_prog=True):
+def proc_classify_fastq(fastq, outfilepath, nmd, segment_lengths, minlen, gcode, bpairs, K, dc, print_prog=True, check_fmt):
     """
     Parse Fasta into segments.
     :param fasta: File handle in Fasta format.
@@ -155,6 +164,8 @@ def proc_classify_fastq(fastq, outfilepath, nmd, segment_lengths, minlen, gcode,
 
         if (count % 4)==1:
             seq_value = line
+            if check_fmt:
+                validate_sequence(seq_value, seq_name)
             if len(seq_value) > minlen:
                 p, s = map_sequence_to_prot(handle_non_ATGC(seq_value), gcode, bpairs, K, dc, dck)
                 if s >= 3:
