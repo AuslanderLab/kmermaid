@@ -72,7 +72,10 @@ def kmermaid_predict():
         "--trained_model", type = str, default = os.path.join('db', 'kmer_model.pkl'), help="Path to cluster (pkl file) **modifications of this argument is not generally supported and at user responsibility**"
     )
     parser.add_argument(
-        "--append_path",default =1, action='store_true', help="Use this flag with slurm"
+        "--append_path", default = 1, action='store_true', help="Use this flag with slurm"
+    )
+    parser.add_argument(
+        "--check_format", default = 1, action = 'store_true', help="Validate format of input file. Turning off this option may lead to incorrect results if the fasta or fastq is not properly formatted"
     )
     args = parser.parse_args()
 
@@ -82,6 +85,7 @@ def kmermaid_predict():
     reps_path = PWD+args.cluster_reps
     model_path = PWD+args.trained_model
     app_path = args.append_path
+    check_fmt = args.check_format
 
     if input_path is None:
         print('Error: Syntax: mikclust COMMAND [OPTIONS]. To print help message: mikclust -h')
@@ -119,10 +123,10 @@ def kmermaid_predict():
 
     start_time = timeit.default_timer()
     if line0.startswith('>'):
-        proc_classify_fasta(open(input_path), output_path + ".tsv", nmd = names_dict, segment_lengths = SEGMENT_LENGTH, minlen = MIN_LEN, gcode = gencode, bpairs = basepairs, K = K, dc = mod)
+        proc_classify_fasta(open(input_path), output_path + ".tsv", nmd = names_dict, segment_lengths = SEGMENT_LENGTH, minlen = MIN_LEN, gcode = gencode, bpairs = basepairs, K = K, dc = mod, check_fmt = check_fmt)
     elif line0.startswith('@'):
         proc_classify_fastq(open(input_path), output_path + ".tsv", nmd=names_dict, segment_lengths=SEGMENT_LENGTH,
-                            minlen=MIN_LEN, gcode=gencode, bpairs=basepairs, K=K, dc=mod)
+                            minlen=MIN_LEN, gcode=gencode, bpairs=basepairs, K=K, dc=mod, check_fmt = check_fmt)
     if not line0.startswith('@') and not line0.startswith('>'):
         print('kmermaid: error: only fasta, fastq format supported, exiting...')
         sys.exit(1)
