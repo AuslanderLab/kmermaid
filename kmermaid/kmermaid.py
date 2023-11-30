@@ -95,12 +95,45 @@ def handle_non_ATGC(sequence):
     assert len(ret) == len(sequence)
     return ret
 
-def validate_sequence(sequence, name):
+def validate_sequence(sequence, line):
     """
     Checks to make sure the sequence only contains [ATCG] characters 
     I leave it at 95% in case there are 1 or 2 errors
     """
-    assert len(set(sequence).difference('ACTG')) == 0, "Non-'ATCG' characters detected in sequence '" +  name + "'" 
+    assert len(set(sequence).difference('ACTG')) == 0, "Non 'ATCG' characters detected in sequence at line '" +  str(line) + "'" 
+
+def validate_fasta(filepath):
+    """
+    Performs sequence validation for fasta
+    """
+    count = 0
+    seq_len = 0
+    for line in filepath:
+        l = line.strip()
+        if count % 2 == 0:
+            seq_len = int(l.split(' ')[2].split('=')[1])
+        if count % 2 == 1:
+            validate_sequence(l, count+1)
+            assert len(l) == seq_len, "Found inconsistent read length at lines " + str(count) + ", " + str(count+1)
+        count += 1
+
+def validate_fastq(filepath):
+    """
+    Performs sequence validation for fastq
+    # Pass 1 checks validity of blocks
+    # Pass 2 checks that the blocks contain info about the same sequence
+    """
+    count = 0
+    seq_len = 0
+    for line in filepath:
+        l = line.strip()
+        if count % 4 == 0:
+            seq_len = int(l.split(' ')[2].split('=')[1])
+        if count % 4 == 1:
+            validate_sequence(l, count+1)
+            assert len(l) == seq_len, "Found inconsistent read length at lines " + str(count) + ", " + str(count+1)
+        count += 1
+
 
 def proc_classify_fasta(fasta, outfilepath, nmd, segment_lengths, minlen, gcode, bpairs, K, dc, check_fmt, print_prog=True):
     """
@@ -124,7 +157,7 @@ def proc_classify_fasta(fasta, outfilepath, nmd, segment_lengths, minlen, gcode,
                 #assert seq_value is not None, seq_name
 
                 if len(seq_value) > minlen:
-                    p, s = map_sequence_to_prot(handle_non_ATGC(seq_value), gcode, bpairs, K, dc, dck)
+                    p, s = map_sequence_to_prot(handle_non_ATGC(seq_value.strip()), gcode, bpairs, K, dc, dck)
 
                     if s>=3:
                         fo.write(seq_name + "\t" + p + "\t" + nmd[p] + "\t" + str(round(s, 2)) + "\n")
@@ -136,8 +169,6 @@ def proc_classify_fasta(fasta, outfilepath, nmd, segment_lengths, minlen, gcode,
             seq_value = ""
         else:
             seq_value += line
-            if check_fmt:
-                validate_sequence(seq_value, str(seq_name))
 
     count += 1
     ret_str = "Finished"
@@ -164,10 +195,8 @@ def proc_classify_fastq(fastq, outfilepath, nmd, segment_lengths, minlen, gcode,
 
         if (count % 4)==1:
             seq_value = line
-            if check_fmt:
-                validate_sequence(seq_value, str(seq_name))
             if len(seq_value) > minlen:
-                p, s = map_sequence_to_prot(handle_non_ATGC(seq_value), gcode, bpairs, K, dc, dck)
+                p, s = map_sequence_to_prot(handle_non_ATGC(seq_value.strip()), gcode, bpairs, K, dc, dck)
                 if s >= 3:
                     fo.write(seq_name + "\t" + p + "\t" + nmd[p] + "\t" + str(round(s, 2)) + "\n")
 

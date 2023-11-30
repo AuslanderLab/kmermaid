@@ -123,8 +123,16 @@ def kmermaid_predict():
 
     start_time = timeit.default_timer()
     if line0.startswith('>'):
+        if check_fmt:
+            validate_fasta(open(input_path))
+        else: 
+            print("Skipping input validation")
         proc_classify_fasta(open(input_path), output_path + ".tsv", nmd = names_dict, segment_lengths = SEGMENT_LENGTH, minlen = MIN_LEN, gcode = gencode, bpairs = basepairs, K = K, dc = mod, check_fmt = check_fmt)
     elif line0.startswith('@'):
+        if check_fmt:
+            validate_fastq(open(input_path))
+        else:
+            print("Skipping input validatation")
         proc_classify_fastq(open(input_path), output_path + ".tsv", nmd=names_dict, segment_lengths=SEGMENT_LENGTH,
                             minlen=MIN_LEN, gcode=gencode, bpairs=basepairs, K=K, dc=mod, check_fmt = check_fmt)
     if not line0.startswith('@') and not line0.startswith('>'):
