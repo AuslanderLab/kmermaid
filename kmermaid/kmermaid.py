@@ -102,7 +102,7 @@ def validate_sequence(sequence, name):
     """
     assert len(set(sequence).difference('ACTG')) == 0, "Non-'ATCG' characters detected in sequence '" +  name + "'" 
 
-def proc_classify_fasta(fasta, outfilepath, nmd, segment_lengths, minlen, gcode, bpairs, K, dc, print_prog=True, check_fmt):
+def proc_classify_fasta(fasta, outfilepath, nmd, segment_lengths, minlen, gcode, bpairs, K, dc, check_fmt, print_prog=True):
     """
     Parse Fasta into segments.
     :param fasta: File handle in Fasta format.
@@ -146,7 +146,7 @@ def proc_classify_fasta(fasta, outfilepath, nmd, segment_lengths, minlen, gcode,
     return ret_str
 
 
-def proc_classify_fastq(fastq, outfilepath, nmd, segment_lengths, minlen, gcode, bpairs, K, dc, print_prog=True, check_fmt):
+def proc_classify_fastq(fastq, outfilepath, nmd, segment_lengths, minlen, gcode, bpairs, K, dc, check_fmt, print_prog=True):
     """
     Parse Fasta into segments.
     :param fasta: File handle in Fasta format.
