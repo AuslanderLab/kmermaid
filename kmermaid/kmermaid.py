@@ -165,7 +165,7 @@ def proc_classify_fastq(fastq, outfilepath, nmd, segment_lengths, minlen, gcode,
         if (count % 4)==1:
             seq_value = line
             if check_fmt:
-                validate_sequence(seq_value, seq_name)
+                validate_sequence(seq_value, str(seq_name))
             if len(seq_value) > minlen:
                 p, s = map_sequence_to_prot(handle_non_ATGC(seq_value), gcode, bpairs, K, dc, dck)
                 if s >= 3:
