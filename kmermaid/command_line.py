@@ -9,7 +9,7 @@ import sys
 import os
 from os.path import isdir,isfile
 import timeit
-from .kmermaid import proc_classify_fasta,proc_classify_fastq
+from .kmermaid import proc_classify_fasta,proc_classify_fastq,validate_fasta,validate_fastq
 import argparse
 from pathlib import Path
 import kmermaid
