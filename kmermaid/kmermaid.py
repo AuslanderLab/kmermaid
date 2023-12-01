@@ -61,6 +61,7 @@ def translate_frameshifted(sequence, gcode):
     translate = ''.join([gcode.get(sequence[3 * i:3 * i + 3]) for i in range(len(sequence) // 3)])
     return translate
 
+
 #@profile
 def reverse_complement(sequence, bpairs):
     """
@@ -84,6 +85,7 @@ def six_frame_trans(seq, gcode, bpairs):
     x6 = translate_frameshifted(rc[2:], gcode)
     x = [x1, x2, x3, x4, x5, x6]
     return x
+
     
 def handle_non_ATGC(sequence):
     """
@@ -95,12 +97,14 @@ def handle_non_ATGC(sequence):
     assert len(ret) == len(sequence)
     return ret
 
+
 def validate_sequence(sequence, line):
     """
     Checks to make sure the sequence only contains [ATCG] characters 
     I leave it at 95% in case there are 1 or 2 errors
     """
     assert len(set(sequence).difference('ACTG')) == 0, "Non 'ATCG' characters detected in sequence at line '" +  str(line) + "'" 
+
 
 def validate_fasta(filepath):
     """
@@ -116,6 +120,7 @@ def validate_fasta(filepath):
             validate_sequence(l, count+1)
             assert len(l) == seq_len, "Found inconsistent read length at lines " + str(count) + ", " + str(count+1)
         count += 1
+
 
 def validate_fastq(filepath):
     """
@@ -206,6 +211,7 @@ def proc_classify_fastq(fastq, outfilepath, nmd, segment_lengths, minlen, gcode,
     print("Read Fastq entry {}, total {} entries read".format(seq_name, int(count/4)), file=sys.stderr)
     fo.close()
     return ret_str
+    
 
 def get_time():
    t = time.localtime()
