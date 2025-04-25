@@ -192,7 +192,7 @@ def proc_classify_fastq(fastq, outfilepath, nmd, segment_lengths, minlen, gcode,
     # ret = OrderedDict()
     dck = set(dc.keys())
     fo = open(outfilepath,'w')
-    fo.write('seq_name' + "\t" + 'cluste_rep' + "\t" + 'prot_name' + "\t"+'score'+"\n")
+    fo.write('seq_name' + "\t" + 'cluster_rep' + "\t" + 'prot_name' + "\t"+'score'+"\n")
     count = 0
     for line in fastq:
         if (count % 4)==0:
