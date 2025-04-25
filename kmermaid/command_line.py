@@ -72,10 +72,10 @@ def kmermaid_predict():
         "--trained_model", type = str, default = os.path.join('db', 'kmer_model.pkl'), help="Path to cluster (pkl file) **modifications of this argument is not generally supported and at user responsibility**"
     )
     parser.add_argument(
-        "--append_path", default = 1, action='store_true', help="Use this flag with slurm"
+        "--append_path", action='store_true', help="Use this flag with slurm"
     )
     parser.add_argument(
-        "--check_format", default = 1, action = 'store_true', help="Validate format of input file. Turning off this option may lead to incorrect results if the fasta or fastq is not properly formatted"
+        "--check_format", action = 'store_true', help="Validate format of input file. Turning off this option may lead to incorrect results if the fasta or fastq is not properly formatted"
     )
     args = parser.parse_args()
 
