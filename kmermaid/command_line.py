@@ -75,7 +75,7 @@ def kmermaid_predict():
         "--append_path", action='store_true', help="Use this flag with slurm"
     )
     parser.add_argument(
-        "--check_format", action = 'store_true', help="Validate format of input file. Turning on this option will perform a validation to see if reported sequence length matches actual sequence length. To use this option the fasta or fastq identifier line must be formatted as :>id [desc]=int"
+        "--check_format", action = 'store_false', help="Validate format of input file. Turning on this option will perform a validation to see if reported sequence length matches actual sequence length. To use this option the fasta or fastq identifier line must be formatted as :>id [desc]=int"
     )
     args = parser.parse_args()
 
