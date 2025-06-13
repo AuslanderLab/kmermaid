@@ -32,7 +32,7 @@ pip install .
 ```
 cd kmermaid/db/
 rm kmer_model.pkl
-wget https://github.com/AuslanderLab/kmermaid/raw/main/kmermaid/db/kmer_model.pkl
+wget https://zenodo.org/records/15658544/files/kmer_model.pkl 
 ```
 
 ### Install with conda 
