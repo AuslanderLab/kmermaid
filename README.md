@@ -1,4 +1,4 @@
-### <i>k</i>Mermaid: Ultrafast metagenomic read assignment to protein clusters by hashing of amino-acid k-mer frequencies
+##### <i>k</i>Mermaid: Ultrafast metagenomic read assignment to protein clusters by hashing of amino-acid k-mer frequencies
 
 ## Overview 
 This file describes the software package <i>k</i>mermaid [1], a k-mer based method for functional classification of metagenomic reads into protein clusters. 
@@ -77,6 +77,8 @@ b. To run the example remote homology sequences not classified with blastx as de
 
 ```
 kmermaid --input inputs/remote_homology_sequences.txt --output outputs/remote_ho
+
+diff outputs/remote_ho.tsv expected_output/remote_ho.tsv 
 ```
 
 
