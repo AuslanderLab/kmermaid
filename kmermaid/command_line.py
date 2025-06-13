@@ -88,7 +88,7 @@ def kmermaid_predict():
     check_fmt = args.check_format
 
     if input_path is None:
-        print('Error: Syntax: mikclust COMMAND [OPTIONS]. To print help message: mikclust -h')
+        print('Error: Syntax: kmermaid COMMAND [OPTIONS]. To print help message: kmermaid -h')
         sys.exit(1)
 
     if not isfile(input_path):
