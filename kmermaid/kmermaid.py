@@ -151,7 +151,7 @@ def proc_classify_fasta(fasta, outfilepath, nmd, segment_lengths, minlen, gcode,
     seq_name = None
     seq_value = None
     fo = open(outfilepath,'w')
-    fo.write('seq_name' + "\t" + 'cluste_rep' + "\t" + 'prot_name' + "\t"+'score'+"\n")
+    fo.write('seq_name' + "\t" + 'cluster_rep' + "\t" + 'prot_name' + "\t"+'score'+"\n")
     count = 0
     for line in fasta:
         # print(line)

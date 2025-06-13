@@ -20,14 +20,14 @@ import kmermaid
 #                     constants                    #
 ####################################################
 
-DESCRIPTION = "kmermaid: Ultrafast functional annotations of shotgut metagenomic sequencing reads" \
+DESCRIPTION = "kMermaid: Ultrafast metagenomic read assignment to protein clusters by hashing of amino-acid k-mer frequencies" \
               ""
 mpath = kmermaid.__file__
 PWD = mpath[:-11]
 
 
 SEGMENT_LENGTH=1000000000000
-MIN_LEN=99 ##Minimun sequence lentgh
+MIN_LEN=99 ##Minimum sequence length
 K = 5
 
 
@@ -75,7 +75,7 @@ def kmermaid_predict():
         "--append_path", action='store_true', help="Use this flag with slurm"
     )
     parser.add_argument(
-        "--check_format", action = 'store_true', help="Validate format of input file. Turning off this option may lead to incorrect results if the fasta or fastq is not properly formatted"
+        "--check_format", action = 'store_true', help="Validate format of input file. Turning on this option will perform a validation to see if reported sequence length matches actual sequence length. To use this option the fasta or fastq identifier line must be formatted as :>id [desc]=int"
     )
     args = parser.parse_args()
 
@@ -88,7 +88,7 @@ def kmermaid_predict():
     check_fmt = args.check_format
 
     if input_path is None:
-        print('Error: Syntax: mikclust COMMAND [OPTIONS]. To print help message: mikclust -h')
+        print('Error: Syntax: kmermaid COMMAND [OPTIONS]. To print help message: kmermaid -h')
         sys.exit(1)
 
     if not isfile(input_path):

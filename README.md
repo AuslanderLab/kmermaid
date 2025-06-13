@@ -1,8 +1,4 @@
-![kmermaid-header-stroke](https://github.com/AuslanderLab/kmermaid/assets/36303235/3790f800-c7ec-4236-802b-d69e788fb4df)
-
-
-<i>k</i>mermaid: Ultrafast functional classification of microbial reads
-
+# <i>k</i>Mermaid: Ultrafast metagenomic read assignment to protein clusters by hashing of amino-acid k-mer frequencies
 
 ## Overview 
 This file describes the software package <i>k</i>mermaid [1], a k-mer based method for functional classification of metagenomic reads into protein clusters. 
@@ -12,7 +8,7 @@ Operating systems tested: Linux (CentOS version 7 and Ubuntu 20.04 LTS) and MacO
 Python versions tested: Python 3.6, 3.7, 3.8 and 3.9
 
 ## Citation
-[1] Anastasia Lucas, Daniel Schaffer, Jayamanna Wickramasinghe, Noam Auslander. kmermaid: Ultrafast functional classification of microbial reads
+[1] Anastasia Lucas, Daniel Schaffer, Jayamanna Wickramasinghe, Noam Auslander. kmermaid: Ultrafast functional classification of microbial reads. bioRxiv 2023.08.28.555149; doi: https://doi.org/10.1101/2023.08.28.555149 
 
 ## Installation
 
@@ -31,8 +27,8 @@ pip install .
 #### File dependncy: To download the larger files uploaded to this repo, install git-lfs https://git-lfs.com (otherwise larger files including the kmer model would not be downloded through git clone). Alternatively, download the files directly. For example, to download the kmer model to ```kmermaid/db/``` run:
 ```
 cd kmermaid/db/
-rm kmer_model.pkl
-wget https://github.com/AuslanderLab/kmermaid/raw/main/kmermaid/db/kmer_model.pkl
+wget https://zenodo.org/records/15658544/files/kmer_model.pkl 
+cd ../../
 ```
 
 ### Install with conda 
@@ -54,11 +50,11 @@ conda deactivate
 ```
 
 ## Usage
-To use <i>k</i>mermaid, a user must provide an input fasta/fastq and is recommended to provide an output path:
+To use kmermaid, a user must provide an input fasta/fastq and is recommended to provide an output path:
 
 ### Running example (Demo):
 
-Expected run time for demo on a "normal" desktop computer: less than 10 minutes
+Expected run time for demo on a "normal" desktop computer: less than 1 minute
 
 a. To run with an example input fasta file (```inputs/reads_file.fa```) run
 
@@ -70,9 +66,9 @@ And evaluate the output file generated in ```outputs/``` using the expected outp
 
 To test if the above command worked as expected, run the additional command
 
- ```
+```
  diff outputs/out_file.tsv expected_output/expected_out_exmp.tsv
- ```
+```
 The installation is correct if the above diff command retruns either no differences or small differences in the less significant digits.
  
 
@@ -80,13 +76,15 @@ b. To run the example remote homology sequences not classified with blastx as de
 
 ```
 kmermaid --input inputs/remote_homology_sequences.txt --output outputs/remote_ho
+
+diff outputs/remote_ho.tsv expected_output/remote_ho.tsv 
 ```
 
 
-##Output
-kmermaid output is the K-mer based cluster classification of each read which is a tab delimited file with the following columns:
+## Output
+kmermaid output is the k-mer based cluster classification of each read which is a tab delimited file with the following columns:
 1) seq_name-read id from input fasta 
-2) cluste_rep-protein ID of cluster representative
+2) cluster_rep-protein ID of cluster representative
 3) prot_name- name of the protein 
 4) score - confidence scores when above 3
 
@@ -99,11 +97,15 @@ WP_002358485.1_0	WP_002358485.1	lantipeptide cytolysin subunit CylL-L	23.00
 
 | Parameter |     type      |           description            |       default       |
 | :---: |:-------------:|:--------------------------------:|:-------------------:|
-| input |  path (txt)   |    fasta or fastq input file     |          -          |
-| output |  path (txt)   |       path to output file        | False (no argument) |
-| cluster_reps |  path (txt)   | path to cluster names (pkl file) | False (no argument) |
-| trained_model |  path (txt)   |    path to cluster (pkl file)    | False (no argument) |
-| append_path | Boolean (0/1) |       use flag with slurm        |         `1`          |
+| `input` |  path (txt)   |    fasta or fastq input file     |          -          |
+| `output` |  path (txt)   |       path to output file        | False (no argument) |
+| `cluster_reps` |  path (txt)   | path to cluster names (pkl file) | False (no argument) |
+| `trained_model` |  path (txt)   |    path to cluster (pkl file)    | False (no argument) |
+| `append_path` | boolean |       use flag with slurm        |         False (no argument)         |
+| `check_format` | boolean | use flag to validate input (*see below) | False (no argument) |
+
+
+*Input validation: Specifying `--check_format` will perform a validation to see if reported sequence length of the fasta/q matches actual sequence length. To use this option the fasta/q identifier line must be formatted as `>id length=int`
 
 ## Retraining
 To retrain <i>k</i>mermaid with a new clustered database of protein sequences, the retraining code is provided in ```kmermaid/_retrain_kmermaid_.py```
