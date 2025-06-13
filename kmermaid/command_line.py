@@ -20,7 +20,7 @@ import kmermaid
 #                     constants                    #
 ####################################################
 
-DESCRIPTION = "kmermaid: Ultrafast functional annotations of shotgun metagenomic sequencing reads using double hashing" \
+DESCRIPTION = "kMermaid: Ultrafast metagenomic read assignment to protein clusters by hashing of amino-acid k-mer frequencies" \
               ""
 mpath = kmermaid.__file__
 PWD = mpath[:-11]
