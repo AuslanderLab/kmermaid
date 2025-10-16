@@ -8,7 +8,7 @@ Operating systems tested: Linux (CentOS version 7 and Ubuntu 20.04 LTS) and MacO
 Python versions tested: Python 3.6, 3.7, 3.8 and 3.9
 
 ## Citation
-[1] Anastasia Lucas, Daniel Schaffer, Jayamanna Wickramasinghe, Noam Auslander. kmermaid: Ultrafast functional classification of microbial reads. bioRxiv 2023.08.28.555149; doi: https://doi.org/10.1101/2023.08.28.555149 
+[1] Anastasia Lucas, Daniel Schaffer, Jayamanna Wickramasinghe, Noam Auslander. kMermaid: Ultrafast metagenomic read assignment to protein clusters by hashing of amino acid k-mer frequencies. PLoS Comput Biol. September 2025 [Paper](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1013470)
 
 ## Installation
 
